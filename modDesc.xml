@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modDesc descVersion="72">
+    <author>Luke Bradbury</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Forage Hay</en>
+    </title>
+    <description>
+        <en><![CDATA[Forage Hay mod allows forage harvester pickups to gather hay in Farming Simulator 22]]></en>
+    </description>
+    <iconFilename>iconForageHay.dds</iconFilename>
+    <extraSourceFiles>
+        <sourceFile filename="ForageHayPickup.lua" />
+    </extraSourceFiles>
+</modDesc>
