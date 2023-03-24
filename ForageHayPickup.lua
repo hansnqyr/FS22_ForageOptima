@@ -1,53 +1,33 @@
 ForageHayPickup = {}
 ForageHayPickup.modDir = g_currentModDirectory
-
-
-function ForageHayPickup:addFruitType(fruitType)
-    table.insert(g_fruitTypeManager.fruitTypes, fruitType)
-
-    g_fruitTypeManager.nameToFruitType[fruitType.name] = fruitType
-    g_fruitTypeManager.nameToIndex[fruitType.name] = fruitType.index
-    g_fruitTypeManager.indexToFruitType[fruitType.index] = fruitType
-    g_fruitTypeManager.fillTypeIndexToFruitTypeIndex[fruitType.fillType.index] = fruitType.index
-    g_fruitTypeManager.fruitTypeIndexToFillType[fruitType.index] = fruitType.fillType
-
-    local windrowFillType = g_fillTypeManager:getFillTypeByName(fruitType.windrowName)
-    g_fruitTypeManager.windrowFillTypes[windrowFillType.index] = true
-    g_fruitTypeManager.fruitTypeIndexToWindrowFillTypeIndex[fruitType.index] = windrowFillType.index
-    g_fruitTypeManager.fillTypeIndexToFruitTypeIndex[windrowFillType.index] = fruitType.index
-end
+ForageHayPickup.xmlFileId = loadXMLFile("FS22_ForageHay", ForageHayPickup.modDir .. "ForageHay.xml")
 
 function ForageHayPickup:loadMap(name)
-	-- Add Hay to Forage Harvester Fill Type Category
-	local dryGrassWindrowFillType = g_fillTypeManager:getFillTypeByName("DRYGRASS_WINDROW")
-	if dryGrassWindrowFillType ~= nil then
-		local fillTypeCategoryForageHarvester = g_fillTypeManager.nameToCategoryIndex.FORAGEHARVESTER
-		if fillTypeCategoryForageHarvester ~= nil then
-			g_fillTypeManager:addFillTypeToCategory(dryGrassWindrowFillType.index, fillTypeCategoryForageHarvester)
-            print("FillType 'DRYGRASS_WINDROW' added to FillTypeCategory 'FORAGEHARVESTER'")
-		else
-			print("FillTypeCategory 'FORAGEHARVESTER' not found")
-		end
-	else
-		print("FillType 'DRYGRASS_WINDROW' not found")
-	end
-	
-	-- Add Drygrass Fruit Type
-	local dryGrassFruitType = g_fruitTypeManager:addFruitType("DRYGRASS", false, false)
-    if dryGrassFruitType ~= nil then
-        dryGrassFruitType.literPerSqm = 3.28
-        dryGrassFruitType.hasWindrow = true
-        dryGrassFruitType.windrowName = "DRYGRASS_WINDROW" -- Replace with ref to fill type?
-        dryGrassFruitType.windrowLiterPerSqm = 4.37
-        ForageHayPickup:addFruitType(dryGrassFruitType)
-        print("FruitType 'DRYGRASS' added")
+
+    -- Add Hay to Forage Harvester Fill Type Category
+    local dryGrassWindrowFillType = g_fillTypeManager:getFillTypeByName("DRYGRASS_WINDROW")
+    local fillTypeCategoryForageHarvester = g_fillTypeManager.nameToCategoryIndex.FORAGEHARVESTER
+    if dryGrassWindrowFillType ~= nil and fillTypeCategoryForageHarvester ~= nil then
+        g_fillTypeManager:addFillTypeToCategory(dryGrassWindrowFillType.index, fillTypeCategoryForageHarvester)
+        print("FillType 'DRYGRASS_WINDROW' added to FillTypeCategory 'FORAGEHARVESTER'")
     else
-        print("FruitType 'DRYGRASS' not added")
+        print("FillType 'DRYGRASS_WINDROW' not found")
     end
 
-	-- Add Drygrass to Pickup Fruit Type Category
-	local pickupFruitTypeCategory = g_fruitTypeManager.categories.PICKUP
-    if pickupFruitTypeCategory ~= nil then
+
+
+
+    -- Add Drygrass Fruit Type
+    if g_fruitTypeManager:loadFruitTypes(ForageHayPickup.xmlFileId) then
+        print("Additional FruitTypes loaded")
+    else
+        print("Failed to load additional FruitTypes")
+    end
+
+    -- Add Drygrass to Pickup Fruit Type Category
+    local pickupFruitTypeCategory = g_fruitTypeManager.categories.PICKUP
+    local dryGrassFruitType = g_fruitTypeManager:getFruitTypeByName("DRYGRASS")
+    if pickupFruitTypeCategory ~= nil and dryGrassFruitType ~= nil then
         g_fruitTypeManager:addFruitTypeToCategory(dryGrassFruitType.index, pickupFruitTypeCategory)
         print("FruitType 'DRYGRASS' added to FruitTypeCategory 'PICKUP'")
     else
@@ -55,10 +35,11 @@ function ForageHayPickup:loadMap(name)
     end
 
     -- Add Drygrass converter
-	local conversionFactor = 1.0
-	local windrowConversionFactor = 1.0
+    local conversionFactor = 1.0
+    local windrowConversionFactor = 1.0
 
-	local forageHarvesterConverter = g_fruitTypeManager.converterNameToIndex.FORAGEHARVESTER
+    local forageHarvesterConverter = g_fruitTypeManager.converterNameToIndex.FORAGEHARVESTER
+
     if dryGrassWindrowFillType ~= nil then
         if forageHarvesterConverter ~= nil then
             g_fruitTypeManager:addFruitTypeConversion(forageHarvesterConverter, dryGrassFruitType.index, dryGrassWindrowFillType.index, conversionFactor, windrowConversionFactor)
