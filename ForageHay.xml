@@ -2,13 +2,19 @@
 <map>
     <fruitTypes>
         <fruitType name="drygrass" shownOnMap="true" useForFieldJob="false">
-            <harvest literPerSqm="3.28"  />
-            <windrow name="drygrass_windrow" litersPerSqm="4.37" />
+            <harvest literPerSqm="3.28"/>
+            <windrow name="drygrass_windrow" litersPerSqm="4.37"/>
         </fruitType>
     </fruitTypes>
-    <fruitTypeCategory name="PICKUP" >DRYGRASS</fruitTypeCategory>
-    <fruitTypeConverter name="FORAGEHARVESTER">
-        <converter from="DRYGRASS"  to="DRYGRASS_WINDROW" factor="1.0" windrowFactor="1.0" />
-    </fruitTypeConverter>
-    <fillTypeCategory name="FORAGEHARVESTER" >CHAFF GRASS_WINDROW DRYGRASS_WINDROW WOODCHIPS</fillTypeCategory>
+    <fruitTypeCategories>
+        <fruitTypeCategory name="PICKUP">DRYGRASS</fruitTypeCategory>
+    </fruitTypeCategories>
+    <fruitTypeConverters>
+        <fruitTypeConverter name="FORAGEHARVESTER">
+            <converter from="DRYGRASS" to="DRYGRASS_WINDROW" factor="1.0" windrowFactor="1.0"/>
+        </fruitTypeConverter>
+    </fruitTypeConverters>
+    <fillTypeCategories>
+        <fillTypeCategory name="FORAGEHARVESTER">CHAFF GRASS_WINDROW DRYGRASS_WINDROW WOODCHIPS</fillTypeCategory>
+    </fillTypeCategories>
 </map>
