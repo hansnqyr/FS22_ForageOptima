@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<modDesc descVersion="72">
+<modDesc descVersion="73">
     <author>Luke Bradbury</author>
     <version>1.0.0.0</version>
     <title>
-        <en>Forage Hay</en>
+        <en>LFHA ForageOptima Standard</en>
     </title>
     <description>
-        <en><![CDATA[Forage Hay mod allows forage harvester pickups to gather hay in Farming Simulator 22]]></en>
+        <en><![CDATA[
+FOR IMMEDIATE RELEASE
+
+Introducing the LFHA ForageOptima Standard: A Game-Changing Set of Guidelines for Forage Harvesting
+
+Lizard Forage Harvesting Association (LFHA), a renowned industry body specializing in forage harvesting technology and innovation, proudly announces the LFHA ForageOptima Standard. This groundbreaking set of guidelines significantly enhances forage harvesting operations, primarily through improved grass and corn management practices.
+
+The LFHA ForageOptima Standard brings revolutionary advancements to the industry by incorporating the latest research findings and market trends, resulting in a more realistic and efficient forage harvesting experience. Key components of the standard include:
+
+    1. LFHA proudly certifies pickup headers for efficient hay foraging, opening up new opportunities for farmers to streamline their hay production process.
+    2. Thanks to innovative technology, hay collected by forage harvesters experiences reduced pickup losses, ensuring a more efficient and productive harvesting operation.
+    3. Groundbreaking advancements in direct cutter header design have received LFHA's seal of approval for closer cutting capabilities, now slightly surpassing traditional mowers in performance and precision.
+    4. Significant advancements in corn yields, resulting from breakthroughs in corn hybrid varieties and agronomic techniques, increasing chaff production.
+    5. Optimized forage harvesting performance, as corn silage production now surpasses grass during the summer months, thanks to cutting-edge research and market insights.
+
+As a leading authority in the forage harvesting industry, LFHA is committed to delivering the most innovative and effective solutions for today's farming professionals. The LFHA ForageOptima Standard is a testament to our dedication to supporting the farming community with advanced guidelines that enhance productivity and sustainability.
+
+To experience the benefits of the LFHA ForageOptima Standard, implement these guidelines into your forage harvesting operations. Unleash the full potential of your forage harvesting with LFHA's ForageOptima Standard.
+
+For more information about LFHA and our mission to revolutionize forage harvesting technology, please visit [your website].
+
+About Lizard Forage Harvesting Association (LFHA)
+
+LFHA is a pioneering organization focused on promoting innovation and best practices in the field of forage harvesting. Our commitment to research and development, combined with our extensive industry knowledge, enables us to deliver groundbreaking solutions that enhance farming productivity and sustainability. The LFHA ForageOptima Standard is one of our latest offerings designed to empower farmers with cutting-edge guidelines for efficient and productive forage harvesting experiences.
+]]></en>
     </description>
-    <iconFilename>iconForageHay.dds</iconFilename>
+    <iconFilename>iconForageOptima.dds</iconFilename>
     <extraSourceFiles>
-        <sourceFile filename="ForageHayPickup.lua" />
+        <sourceFile filename="ForageOptima.lua"/>
     </extraSourceFiles>
 </modDesc>
