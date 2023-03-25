@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <map>
     <fruitTypes>
+        <fruitType name="maize" shownOnMap="true" useForFieldJob="true">
+            <harvest minHarvestingGrowthState="7" maxHarvestingGrowthState="7" cutState="9" minForageGrowthState="5"
+                     allowsPartialGrowthState="false" literPerSqm="1.35" cutHeight="0.20" forageCutHeight="0.15"
+                     chopperTypeName="CHOPPER_MAIZE"/>
+        </fruitType>
         <fruitType name="drygrass" shownOnMap="true" useForFieldJob="false">
             <harvest literPerSqm="3.28"/>
             <windrow name="drygrass_windrow" litersPerSqm="4.37"/>
@@ -11,10 +16,12 @@
     </fruitTypeCategories>
     <fruitTypeConverters>
         <fruitTypeConverter name="FORAGEHARVESTER">
+            <converter from="MAIZE" to="CHAFF" factor="16"/>
+            <converter from="GRASS" to="GRASS_WINDROW" factor="1.4" windrowFactor="1.0"/>
             <converter from="DRYGRASS" to="DRYGRASS_WINDROW" factor="1.0" windrowFactor="1.0"/>
         </fruitTypeConverter>
     </fruitTypeConverters>
     <fillTypeCategories>
-        <fillTypeCategory name="FORAGEHARVESTER">CHAFF GRASS_WINDROW DRYGRASS_WINDROW WOODCHIPS</fillTypeCategory>
+        <fillTypeCategory name="FORAGEHARVESTER">DRYGRASS_WINDROW</fillTypeCategory>
     </fillTypeCategories>
 </map>
