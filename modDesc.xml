@@ -33,6 +33,7 @@ LFHA is a pioneering organization focused on promoting innovation and best pract
 ]]></en>
     </description>
     <iconFilename>iconForageOptima.dds</iconFilename>
+    <multiplayer supported="true" />
     <extraSourceFiles>
         <sourceFile filename="ForageOptima.lua"/>
     </extraSourceFiles>
