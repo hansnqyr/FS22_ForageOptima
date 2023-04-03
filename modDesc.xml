@@ -31,7 +31,7 @@ About Lizard Forage Harvesting Association (LFHA)
 LFHA is a pioneering organization focused on promoting innovation and best practices in the field of forage harvesting. Our commitment to research and development, combined with our extensive industry knowledge, enables us to deliver groundbreaking solutions that enhance farming productivity and sustainability. The LFHA ForageOptima Standard is one of our latest offerings designed to empower farmers with cutting-edge guidelines for efficient and productive forage harvesting experiences.
 ]]></en>
     </description>
-    <iconFilename>iconForageOptima.dds</iconFilename>
+    <iconFilename>icon_ForageOptima.dds</iconFilename>
     <multiplayer supported="true" />
     <extraSourceFiles>
         <sourceFile filename="ForageOptima.lua"/>
